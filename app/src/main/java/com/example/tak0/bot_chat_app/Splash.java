@@ -12,11 +12,9 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         setContentView(R.layout.splash);
         Handler handler = new Handler();
         handler.postDelayed(new splashHandler(), 1000);
-
     }
 
     class splashHandler implements Runnable {

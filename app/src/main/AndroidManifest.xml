@@ -15,6 +15,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".UserList"></activity>
+        <activity android:name=".TalkList"/>
     </application>
 
 </manifest>
