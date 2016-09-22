@@ -18,7 +18,7 @@ public class TalkList extends Activity {
 
         List<ListItem> list = new ArrayList<ListItem>();
 
-        for(int i = 1; i < 15; i++){
+        for(int i = 1; i < 30; i++){
             ListItem item = new ListItem();
             item.setImageID(R.drawable.default_img)
                     .setText("num"+i);
