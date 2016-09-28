@@ -1,26 +1,25 @@
 package com.example.tak0.bot_chat_app;
 
-/**
- * Created by tak0 on 2016/09/22.
- */
 public class ListItem {
 
     private int imageID;
-    private String text;
+    private String mainText;
+    private String subText;
 
     public ListItem(){
         this.imageID = R.drawable.default_img;
-        this.text = "None";
+        this.mainText = "None";
+        this.subText = "None";
     }
 
     public ListItem(String text){
         this.imageID = R.drawable.default_img;
-        this.text = text;
+        this.mainText = text;
     }
 
-    public ListItem(int imageID, String text){
+    public ListItem(int imageID, String mainText){
         this.imageID = imageID;
-        this.text = text;
+        this.mainText = mainText;
     }
 
     public int getImageID(){
@@ -32,12 +31,16 @@ public class ListItem {
         return this;
     }
 
-    public String getText(){
-        return text;
+    public String getMainText(){
+        return mainText;
     }
 
-    public ListItem setText(String text){
-        this.text = text;
+    public String getSubText(){
+        return subText;
+    }
+
+    public ListItem setMainText(String text){
+        this.mainText = text;
         return this;
     }
 

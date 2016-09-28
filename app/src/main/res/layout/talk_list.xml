@@ -9,6 +9,4 @@
             android:layout_weight="1"
             android:id="@+id/talk_list_view" />
 
-    <include layout="@layout/tab"/>
-
 </LinearLayout>

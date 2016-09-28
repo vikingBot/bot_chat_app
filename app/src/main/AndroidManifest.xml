@@ -14,7 +14,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserList"></activity>
+        <activity android:name=".Main"/>
         <activity android:name=".TalkList"/>
     </application>
 

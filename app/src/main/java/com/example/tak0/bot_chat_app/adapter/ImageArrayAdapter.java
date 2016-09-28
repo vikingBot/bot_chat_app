@@ -1,4 +1,4 @@
-package com.example.tak0.bot_chat_app;
+package com.example.tak0.bot_chat_app.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.tak0.bot_chat_app.ListItem;
+import com.example.tak0.bot_chat_app.R;
 
 import java.util.List;
 
@@ -39,8 +42,8 @@ public class ImageArrayAdapter extends ArrayAdapter<ListItem> {
 
         ListItem item = this.items.get(position);
 
-        TextView appText = (TextView)view.findViewById(R.id.list_text);
-        appText.setText(item.getText());
+        TextView appText = (TextView)view.findViewById(R.id.list_main_text);
+        appText.setText(item.getMainText());
 
         ImageView appImage = (ImageView)view.findViewById(R.id.list_image);
         appImage.setImageResource(item.getImageID());
