@@ -14,9 +14,7 @@ import com.example.tak0.bot_chat_app.R;
 
 import java.util.List;
 
-/**
- * Created by tak0 on 2016/09/27.
- */
+
 public class UserExpandableAdapter extends BaseExpandableListAdapter {
 
     private LayoutInflater inflater;
@@ -24,10 +22,11 @@ public class UserExpandableAdapter extends BaseExpandableListAdapter {
     private List<List<ListItem>> children;
     private Context context;
 
-    public UserExpandableAdapter(Main m, List<String> group, List<List<ListItem>> children){
-        inflater =(LayoutInflater) m.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public UserExpandableAdapter(Context context, List<String> group, List<List<ListItem>> children){
+        inflater =(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.group = group;
         this.children = children;
+        this.context = context;
     }
 
     @Override

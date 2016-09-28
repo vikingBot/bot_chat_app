@@ -1,11 +1,13 @@
 package com.example.tak0.bot_chat_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.AdapterView;
 
 import com.example.tak0.bot_chat_app.adapter.ImageArrayAdapter;
 
@@ -35,6 +37,14 @@ public class TalkList extends Fragment {
         listView = (ListView)view.findViewById(R.id.talk_list_view);
         listView.setAdapter(adapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), Talk.class);
+                startActivity(intent);
+
+            }
+        });
         return view;
 
     }

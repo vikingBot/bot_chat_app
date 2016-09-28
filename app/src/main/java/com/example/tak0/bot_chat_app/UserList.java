@@ -6,12 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.SimpleExpandableListAdapter;
+
+import com.example.tak0.bot_chat_app.adapter.UserExpandableAdapter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 public class UserList extends Fragment {
@@ -25,51 +24,26 @@ public class UserList extends Fragment {
         ExpandableListView listView = (ExpandableListView) view.findViewById(R.id.expandableListView);
 
         List<String> parent = new ArrayList<String>();
+        List<List<ListItem>> childrenList = new ArrayList<List<ListItem>>();
+
+
         for(String name: groupName){
-            parent.add(name);
-        }
-
-
-
-        List<Map<String, String>> groupList = new ArrayList<Map<String, String>>();
-        List<List<Map<String, String>>> childList = new ArrayList<List<Map<String,String>>>();
-
-
-        for (String name: groupName) {
-            // Group（親）のリスト
-            Map<String, String> groupElement = new HashMap<String, String>();
-            groupElement.put("GROUP_TITLE", name);
-            groupList.add(groupElement);
-            // Childのリスト
-            List<Map<String, String>> childElements = new ArrayList<Map<String, String>>();
-            for (int j = 0; j < 5; j++) {
-                Map<String, String> child = new HashMap<String, String>();
-                child.put("CHILD_TITLE", "Child " + j);
-                child.put("SUMMARY", "Summary " + j);
-                childElements.add(child);
+            List<ListItem> children = new ArrayList<ListItem>();
+            if(name.equals("info")){
+                ListItem item = new ListItem().setMainText("user");
+                children.add(item);
+            }else {
+                for (int i = 0; i < 5; i++) {
+                    ListItem item = new ListItem();
+                    children.add(item);
+                }
             }
-            childList.add(childElements);
+
+            parent.add(name);
+            childrenList.add(children);
         }
 
-        SimpleExpandableListAdapter adapter = new SimpleExpandableListAdapter(
-                getContext(),
-                // Group(親)のリスト
-                groupList,
-                // Group(親)のレイアウト
-                R.layout.group_text,
-                // Group(親)のリストで表示するMapのキー
-                new String []{"GROUP_TITLE"},
-                // Group(親)のレイアウト内での文字を表示するTextViewのID
-                new int []{R.id.group_text},
-                // Child(子)のリスト
-                childList,
-                // Child(子)のレイアウト
-                R.layout.list_info,
-                // Child(子)のリストで表示するMapのキー
-                new String []{"CHILD_TITLE", "SUMMARY"},
-                // Child(子)のレイアウト内での文字を表示するTextViewのID
-                new int []{android.R.id.text1, android.R.id.text2}
-        );
+        UserExpandableAdapter adapter = new UserExpandableAdapter(getContext(), parent, childrenList);
 
         listView.setAdapter(adapter);
 
